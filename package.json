@@ -1,0 +1,13 @@
+{
+  "name": "abubot",
+  "version": "1.0.0",
+  "description": "A bot that listens to slack events and deploy your applications to aws",
+  "main": "index.js",
+  "repository": "git@github.com:aindong/abubot.git",
+  "author": "Alleo Indong <alleo.indong@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "koa": "^2.7.0"
+  }
+}
