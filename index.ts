@@ -1,10 +1,6 @@
 "use strict";
 
-import * as Koa from 'koa';
-const app = new Koa();
+import AbubotServer from './src/abubot';
 
-app.use(async ctx => {
-  ctx.body = "Hello World";
-});
-
-app.listen(3000);
+const server = new AbubotServer();
+server.start();
