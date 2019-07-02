@@ -28,7 +28,7 @@ async function processMentionCommand(body) {
     return false;
   }
 
-  await actions[classification.intent](web);
+  await actions[classification.intent](web, body);
 }
 
 module.exports = async body => {
