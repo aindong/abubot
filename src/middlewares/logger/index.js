@@ -4,7 +4,7 @@
  * Logger hook
  */
 
-module.exports = strapi => {
+module.exports = abubot => {
   return {
     /**
      * Initialize the hook
@@ -14,22 +14,22 @@ module.exports = strapi => {
         level,
         exposeInContext,
         requests
-      } = strapi.config.middleware.settings.logger;
+      } = abubot.config.middleware.settings.logger;
 
       if (level) {
-        strapi.log.level = strapi.config.middleware.settings.logger.level;
+        abubot.log.level = abubot.config.middleware.settings.logger.level;
       }
 
       if (exposeInContext) {
-        strapi.app.context.log = strapi.log;
+        abubot.app.context.log = abubot.log;
       }
 
-      if (requests && strapi.log.levelVal <= 20) {
-        strapi.app.use(async (ctx, next) => {
+      if (requests && abubot.log.levelVal <= 20) {
+        abubot.app.use(async (ctx, next) => {
           const start = Date.now();
           await next();
           const delta = Math.ceil(Date.now() - start);
-          strapi.log.debug(`${ctx.method} ${ctx.url} (${delta} ms)`);
+          abubot.log.debug(`${ctx.method} ${ctx.url} (${delta} ms)`);
         });
       }
     }
