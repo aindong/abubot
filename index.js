@@ -7,6 +7,7 @@ const bodyParser = require("koa-bodyparser")();
 const KoaRouter = require("koa-router");
 
 const slackProcessor = require("./slack");
+// const comprehend = require("./comprehension");
 
 // Koa application
 const app = new Koa();
@@ -18,9 +19,17 @@ app.use(json);
 app.use(bodyParser);
 
 // Routes
-router.get("/events", ctx => {
+router.get("/events", async ctx => {
   ctx.body = "This is a slack event";
 });
+
+// router.get("/talk/:message", async ctx => {
+//   const body = ctx.request.body;
+//   const classifier = await comprehend.train();
+//   const result = await comprehend.classify(classifier, ctx.params.message);
+
+//   ctx.body = result;
+// });
 
 router.post("/events", async ctx => {
   const body = ctx.request.body;

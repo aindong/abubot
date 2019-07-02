@@ -1,34 +1,36 @@
 "use strict";
 
 const { WebClient } = require("@slack/web-api");
+const comprehend = require("./comprehension");
 const token = process.env.SLACK_TOKEN;
 // initialize webclient
 const web = new WebClient(token);
 
-const availableCommands = ["deploy", "hi", "hey", "how"];
+const currentProjects = ["luxuria", "communities", "residences", "omnibus"];
 
 async function processMentionCommand(body) {
   const { event } = body;
   // inspect body
   console.log(body);
-  // split text by space
-  const command = event.text.split(" ");
-  if (!availableCommands.includes(command[1])) {
+  // Train the nlp
+  const classifier = await comprehend.train();
+  const classification = await comprehend.classify(
+    classifier,
+    ctx.params.message
+  );
+
+  if (classification.intent === "None") {
     await web.chat.postMessage({
-      text: `Sorry di kita maintindihan! <@${event.user}>`,
+      text: `Pasensya kana <@${
+        event.user
+      }>, wala akong maintindihan sa sinabi mo.`,
       channel: event.channel
     });
+
+    return false;
   }
 
-  const cliCommand = command[1].toLowerCase();
-  if (cliCommand.match("/deploy/")) {
-    console.log("deploy command found");
-    await deployProgram(command);
-  }
-}
-
-async function deployProgram(command) {
-  console.log(`the deploy command is: ${command.join(",")}`);
+  await actions[result.intent](web);
 }
 
 module.exports = async body => {
