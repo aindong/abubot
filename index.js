@@ -6,6 +6,8 @@ const json = require("koa-json")();
 const bodyParser = require("koa-bodyparser")();
 const KoaRouter = require("koa-router");
 
+const slackProcessor = require("./slack");
+
 // Koa application
 const app = new Koa();
 const router = new KoaRouter();
@@ -22,7 +24,7 @@ router.get("/events", ctx => {
 
 router.post("/events", ctx => {
   const body = ctx.request.body;
-  console.log(body);
+  await slackProcessor(body);
   ctx.body = body.challenge;
 });
 
