@@ -29,6 +29,21 @@ async function train() {
   classifier.addDocument("en", "I'd like to know your age", "agent.age");
   classifier.addDocument("en", "tell me your age", "agent.age");
 
+  classifier.assignDomain("tl", "agent.age", "personality");
+  classifier.addDocument("tl", "ilang taon kana?", "agent.age");
+  classifier.addDocument("tl", "anong edad mo?", "agent.age");
+  classifier.addDocument("tl", "ilan kana?", "agent.age");
+
+  classifier.assignDomain("tl", "agent.acquaintance", "personality");
+  classifier.addDocument("tl", "sino ka?", "agent.acquaintance");
+  classifier.addDocument("tl", "anong purpose mo?", "agent.acquaintance");
+  classifier.addDocument("tl", "ano pangalan mo?", "agent.acquaintance");
+  classifier.addDocument(
+    "tl",
+    "magsabi ka tungkol sa sarili mo",
+    "agent.acquaintance"
+  );
+
   await classifier.train();
 
   return classifier;
