@@ -1,56 +1,62 @@
-const { NluManager } = require("node-nlp");
+const { NlpManager } = require("node-nlp");
 
 async function train() {
-  const classifier = new NluManager({ languages: ["en", "tl"] });
+  const manager = new NlpManager({ languages: ["en", "tl"] });
 
-  classifier.assignDomain("en", "deploy", "deployment");
-  classifier.addDocument("en", "deploy luxuria", "deploy");
-
-  classifier.assignDomain("en", "agent.acquaintance", "personality");
-  classifier.addDocument("en", "say about you", "agent.acquaintance");
-  classifier.addDocument("en", "why are you here", "agent.acquaintance");
-  classifier.addDocument(
+  manager.assignDomain("en", "deploy", "deployment");
+  manager.addDocument("en", "deploy %project% to %environment%", "deploy");
+  manager.addDocument(
     "en",
-    "what is your personality",
-    "agent.acquaintance"
+    "please deploy the %project% to %environment%",
+    "deploy"
   );
-  classifier.addDocument("en", "describe yourself", "agent.acquaintance");
-  classifier.addDocument("en", "tell me about yourself", "agent.acquaintance");
-  classifier.addDocument("en", "tell me about you", "agent.acquaintance");
-  classifier.addDocument("en", "what are you", "agent.acquaintance");
-  classifier.addDocument("en", "who are you", "agent.acquaintance");
-  classifier.addDocument("en", "talk about yourself", "agent.acquaintance");
+  manager.addDocument(
+    "en",
+    "can you deploy the project %project% to %environment%",
+    "deploy"
+  );
 
-  classifier.assignDomain("en", "agent.age", "personality");
-  classifier.addDocument("en", "your age", "agent.age");
-  classifier.addDocument("en", "how old is your platform", "agent.age");
-  classifier.addDocument("en", "how old are you", "agent.age");
-  classifier.addDocument("en", "what's your age", "agent.age");
-  classifier.addDocument("en", "I'd like to know your age", "agent.age");
-  classifier.addDocument("en", "tell me your age", "agent.age");
+  manager.assignDomain("en", "agent.acquaintance", "personality");
+  manager.addDocument("en", "say about you", "agent.acquaintance");
+  manager.addDocument("en", "why are you here", "agent.acquaintance");
+  manager.addDocument("en", "what is your personality", "agent.acquaintance");
+  manager.addDocument("en", "describe yourself", "agent.acquaintance");
+  manager.addDocument("en", "tell me about yourself", "agent.acquaintance");
+  manager.addDocument("en", "tell me about you", "agent.acquaintance");
+  manager.addDocument("en", "what are you", "agent.acquaintance");
+  manager.addDocument("en", "who are you", "agent.acquaintance");
+  manager.addDocument("en", "talk about yourself", "agent.acquaintance");
 
-  classifier.assignDomain("tl", "agent.age", "personality");
-  classifier.addDocument("tl", "ilang taon kana?", "agent.age");
-  classifier.addDocument("tl", "anong edad mo?", "agent.age");
-  classifier.addDocument("tl", "ilan kana?", "agent.age");
+  manager.assignDomain("en", "agent.age", "personality");
+  manager.addDocument("en", "your age", "agent.age");
+  manager.addDocument("en", "how old is your platform", "agent.age");
+  manager.addDocument("en", "how old are you", "agent.age");
+  manager.addDocument("en", "what's your age", "agent.age");
+  manager.addDocument("en", "I'd like to know your age", "agent.age");
+  manager.addDocument("en", "tell me your age", "agent.age");
 
-  classifier.assignDomain("tl", "agent.acquaintance", "personality");
-  classifier.addDocument("tl", "sino ka?", "agent.acquaintance");
-  classifier.addDocument("tl", "anong purpose mo?", "agent.acquaintance");
-  classifier.addDocument("tl", "ano pangalan mo?", "agent.acquaintance");
-  classifier.addDocument(
+  manager.assignDomain("tl", "agent.age", "personality");
+  manager.addDocument("tl", "ilang taon kana?", "agent.age");
+  manager.addDocument("tl", "anong edad mo?", "agent.age");
+  manager.addDocument("tl", "ilan kana?", "agent.age");
+
+  manager.assignDomain("tl", "agent.acquaintance", "personality");
+  manager.addDocument("tl", "sino ka?", "agent.acquaintance");
+  manager.addDocument("tl", "anong purpose mo?", "agent.acquaintance");
+  manager.addDocument("tl", "ano pangalan mo?", "agent.acquaintance");
+  manager.addDocument(
     "tl",
     "magsabi ka tungkol sa sarili mo",
     "agent.acquaintance"
   );
 
-  await classifier.train();
+  await manager.train();
 
-  return classifier;
+  return manager;
 }
 
 async function classify(classifier, message) {
-  const classifications = classifier.getClassifications(message);
+  const classifications = await classifier.process(message);
   return classifications;
 }
 

@@ -8,8 +8,6 @@ const token = process.env.SLACK_TOKEN;
 const web = new WebClient(token);
 const actionController = ActionsController(web);
 
-const currentProjects = ["luxuria", "communities", "residences", "omnibus"];
-
 async function processMentionCommand(body) {
   const { event } = body;
   // inspect body
@@ -17,6 +15,7 @@ async function processMentionCommand(body) {
   // Train the nlp
   const classifier = await comprehend.train();
   const classification = await comprehend.classify(classifier, event.text);
+  console.log(classification);
 
   if (classification.intent === "None") {
     await web.chat.postMessage({
@@ -31,8 +30,6 @@ async function processMentionCommand(body) {
 
   // Execute action
   const actionIntent = classification.intent;
-  console.log(`Invoking ${actionIntent} intent`);
-  console.log(actionController);
   await actionController[actionIntent](body);
 }
 
