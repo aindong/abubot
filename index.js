@@ -22,6 +22,9 @@ router.get("/events", ctx => {
 });
 
 router.post("/events", ctx => {
+  const body = ctx.request.body;
+  console.log(body);
+  ctx.body = body.challenge;
   return ctx;
 });
 
