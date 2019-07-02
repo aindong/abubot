@@ -22,7 +22,7 @@ router.get("/events", ctx => {
   ctx.body = "This is a slack event";
 });
 
-router.post("/events", ctx => {
+router.post("/events", async ctx => {
   const body = ctx.request.body;
   await slackProcessor(body);
   ctx.body = body.challenge;
