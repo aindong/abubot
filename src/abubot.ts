@@ -5,6 +5,10 @@ import * as Http from 'http';
 import { EventEmitter } from "events";
 import loadMiddlewares from './core/loadMiddlewares';
 import Middleware from './interfaces/middleware';
+// @ts-ignore
+import * as logger from './core/logger';
+// @ts-ignore
+const initializeMiddlewares = require('./middlewares');
 
 interface AbubotConfiguration {
     host: string; 
@@ -22,6 +26,7 @@ class AbubotHttpServer extends EventEmitter {
     server: Http.Server;
     config: AbubotConfiguration;
     middleware: Middleware;
+    log: any;
 
     constructor(config?: AbubotConfiguration) {
         super();
@@ -29,6 +34,7 @@ class AbubotHttpServer extends EventEmitter {
         this.app = new Koa();
         this.server = Http.createServer(this.app.callback());
         this.middleware = {}
+        this.log = logger; 
 
         this.config = Object.assign({
             host: process.env.HOST || process.env.HONSTNAME || "localhost",
@@ -76,6 +82,14 @@ class AbubotHttpServer extends EventEmitter {
 
         // console.log(this.config.appPath);
         console.log(this.middleware);
+
+        // Initialize middlewares
+        await Promise.all([
+            initializeMiddlewares.call(this)
+        ]).catch(err => {
+            console.error(err);
+            throw err;
+        });
     }
 
     stopAndShowError(err: Error): void {

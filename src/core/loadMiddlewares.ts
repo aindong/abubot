@@ -28,7 +28,6 @@ const createLoaders = (abubot: AbubotHttpServer) => {
             cwd: dir,
         });
 
-        console.log(`Found ${files}`);
         files.forEach((f: string) => {
             console.log(`Found ${f}`);
             const name = f.split('/')[0];
