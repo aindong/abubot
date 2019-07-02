@@ -14,10 +14,7 @@ async function processMentionCommand(body) {
   console.log(body);
   // Train the nlp
   const classifier = await comprehend.train();
-  const classification = await comprehend.classify(
-    classifier,
-    ctx.params.message
-  );
+  const classification = await comprehend.classify(classifier, event.text);
 
   if (classification.intent === "None") {
     await web.chat.postMessage({
