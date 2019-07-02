@@ -22,7 +22,7 @@ async function processMentionCommand(body) {
   const command = event.text.split(" ");
   if (!availableCommands.includes(command[1])) {
     await web.chat.postMessage({
-      text: `Sorry di kita maintindihan! ${event.user}`,
+      text: `Sorry di kita maintindihan! <@${event.user}>`,
       channel: event.channel
     });
   }
