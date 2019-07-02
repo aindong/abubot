@@ -2,10 +2,11 @@
 
 const { WebClient } = require("@slack/web-api");
 const comprehend = require("./comprehension");
-const actions = require("./actions");
+const ActionsController = require("./actions");
 const token = process.env.SLACK_TOKEN;
 // initialize webclient
 const web = new WebClient(token);
+const actionController = ActionsController(web);
 
 const currentProjects = ["luxuria", "communities", "residences", "omnibus"];
 
@@ -28,11 +29,11 @@ async function processMentionCommand(body) {
     return false;
   }
 
-  const actionController = actions(web, body);
-  const actionIntent = classification.intent;
-
   // Execute action
-  await actionController[actionIntent]();
+  const actionIntent = classification.intent;
+  console.log(`Invoking ${actionIntent} intent`);
+  console.log(actionController);
+  await actionController[actionIntent](body);
 }
 
 module.exports = async body => {

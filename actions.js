@@ -1,6 +1,6 @@
-module.exports = async (slack, body) => {
+module.exports = async slack => {
   return {
-    "agent.age": async () => {
+    "agent.age": async body => {
       const { event } = body;
 
       await slack.chat.postMessage({
