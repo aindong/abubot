@@ -1,4 +1,4 @@
-module.exports = async slack => {
+module.exports = slack => {
   return {
     "agent.age": async body => {
       const { event } = body;
