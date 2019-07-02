@@ -1,10 +1,12 @@
-module.exports = {
-  "agent.age": async (slack, body) => {
-    const { event } = body;
+module.exports = async (slack, body) => {
+  return {
+    "agent.age": async () => {
+      const { event } = body;
 
-    await slack.chat.postMessage({
-      text: "Ako ay isang taong gulang pa lamang.",
-      channel: event.channel
-    });
-  }
+      await slack.chat.postMessage({
+        text: "Ako ay isang taong gulang pa lamang.",
+        channel: event.channel
+      });
+    }
+  };
 };
