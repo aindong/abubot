@@ -1,0 +1,1725 @@
+{
+  "settings": {
+    "languages": [
+      "en",
+      "tl"
+    ]
+  },
+  "nluManager": {
+    "settings": {},
+    "languages": [
+      "en",
+      "tl"
+    ],
+    "intentDomains": {
+      "en": {
+        "deploy": "deployment",
+        "agent.acquaintance": "personality",
+        "agent.age": "personality"
+      },
+      "tl": {
+        "agent.age": "personality",
+        "agent.acquaintance": "personality"
+      }
+    },
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "language": "en",
+          "config": {
+            "activation": "leaky-relu",
+            "hiddenLayers": [],
+            "iterations": 20000,
+            "learningRate": 0.8,
+            "errorThresh": 0.00005,
+            "momentum": 0.5,
+            "deltaErrorThresh": 0.000001,
+            "maxDecimals": 9,
+            "leakyReluAlpha": 0.06,
+            "timeout": 120000
+          }
+        },
+        "language": "en",
+        "nluClassName": "BrainNLU",
+        "useMasterDomain": true,
+        "trainByDomain": true,
+        "keepStopwords": true,
+        "stemDict": {
+          "deploy,environ,project,to": {
+            "domain": "deployment",
+            "intent": "deploy"
+          },
+          "deploy,environ,pleas,project,the,to": {
+            "domain": "deployment",
+            "intent": "deploy"
+          },
+          "can,deploy,environ,project,project,the,to,you": {
+            "domain": "deployment",
+            "intent": "deploy"
+          },
+          "about,say,you": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "are,here,whi,you": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "is,person,what,your": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "describ,yourself": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "about,me,tell,yourself": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "about,me,tell,you": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "are,what,you": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "are,who,you": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "about,talk,yourself": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "age,your": {
+            "domain": "personality",
+            "intent": "agent.age"
+          },
+          "how,is,old,platform,your": {
+            "domain": "personality",
+            "intent": "agent.age"
+          },
+          "are,how,old,you": {
+            "domain": "personality",
+            "intent": "agent.age"
+          },
+          "age,is,what,your": {
+            "domain": "personality",
+            "intent": "agent.age"
+          },
+          "age,had,i,know,like,to,your": {
+            "domain": "personality",
+            "intent": "agent.age"
+          },
+          "age,me,tell,your": {
+            "domain": "personality",
+            "intent": "agent.age"
+          }
+        },
+        "intentDict": {
+          "deploy": "deployment",
+          "agent.acquaintance": "personality",
+          "agent.age": "personality"
+        },
+        "useStemDict": true,
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "language": "en",
+              "config": {
+                "activation": "leaky-relu",
+                "hiddenLayers": [],
+                "iterations": 20000,
+                "learningRate": 0.8,
+                "errorThresh": 0.00005,
+                "momentum": 0.5,
+                "deltaErrorThresh": 0.000001,
+                "maxDecimals": 9,
+                "leakyReluAlpha": 0.06,
+                "timeout": 120000
+              }
+            },
+            "language": "en",
+            "keepStopwords": true,
+            "docs": [
+              {
+                "intent": "deployment",
+                "utterance": [
+                  "deploy",
+                  "project",
+                  "to",
+                  "environ"
+                ],
+                "tokens": [
+                  "deploy",
+                  "project",
+                  "to",
+                  "environ"
+                ]
+              },
+              {
+                "intent": "deployment",
+                "utterance": [
+                  "pleas",
+                  "deploy",
+                  "the",
+                  "project",
+                  "to",
+                  "environ"
+                ],
+                "tokens": [
+                  "pleas",
+                  "deploy",
+                  "the",
+                  "project",
+                  "to",
+                  "environ"
+                ]
+              },
+              {
+                "intent": "deployment",
+                "utterance": [
+                  "can",
+                  "you",
+                  "deploy",
+                  "the",
+                  "project",
+                  "project",
+                  "to",
+                  "environ"
+                ],
+                "tokens": [
+                  "can",
+                  "you",
+                  "deploy",
+                  "the",
+                  "project",
+                  "project",
+                  "to",
+                  "environ"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "say",
+                  "about",
+                  "you"
+                ],
+                "tokens": [
+                  "say",
+                  "about",
+                  "you"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "whi",
+                  "are",
+                  "you",
+                  "here"
+                ],
+                "tokens": [
+                  "whi",
+                  "are",
+                  "you",
+                  "here"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "what",
+                  "is",
+                  "your",
+                  "person"
+                ],
+                "tokens": [
+                  "what",
+                  "is",
+                  "your",
+                  "person"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "describ",
+                  "yourself"
+                ],
+                "tokens": [
+                  "describ",
+                  "yourself"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "tell",
+                  "me",
+                  "about",
+                  "yourself"
+                ],
+                "tokens": [
+                  "tell",
+                  "me",
+                  "about",
+                  "yourself"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "tell",
+                  "me",
+                  "about",
+                  "you"
+                ],
+                "tokens": [
+                  "tell",
+                  "me",
+                  "about",
+                  "you"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "what",
+                  "are",
+                  "you"
+                ],
+                "tokens": [
+                  "what",
+                  "are",
+                  "you"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "who",
+                  "are",
+                  "you"
+                ],
+                "tokens": [
+                  "who",
+                  "are",
+                  "you"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "talk",
+                  "about",
+                  "yourself"
+                ],
+                "tokens": [
+                  "talk",
+                  "about",
+                  "yourself"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "your",
+                  "age"
+                ],
+                "tokens": [
+                  "your",
+                  "age"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "how",
+                  "old",
+                  "is",
+                  "your",
+                  "platform"
+                ],
+                "tokens": [
+                  "how",
+                  "old",
+                  "is",
+                  "your",
+                  "platform"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "how",
+                  "old",
+                  "are",
+                  "you"
+                ],
+                "tokens": [
+                  "how",
+                  "old",
+                  "are",
+                  "you"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "what",
+                  "is",
+                  "your",
+                  "age"
+                ],
+                "tokens": [
+                  "what",
+                  "is",
+                  "your",
+                  "age"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "i",
+                  "had",
+                  "like",
+                  "to",
+                  "know",
+                  "your",
+                  "age"
+                ],
+                "tokens": [
+                  "i",
+                  "had",
+                  "like",
+                  "to",
+                  "know",
+                  "your",
+                  "age"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "tell",
+                  "me",
+                  "your",
+                  "age"
+                ],
+                "tokens": [
+                  "tell",
+                  "me",
+                  "your",
+                  "age"
+                ]
+              }
+            ],
+            "features": {
+              "deploy": 3,
+              "project": 4,
+              "to": 4,
+              "environ": 3,
+              "pleas": 1,
+              "the": 2,
+              "can": 1,
+              "you": 7,
+              "say": 1,
+              "about": 4,
+              "whi": 1,
+              "are": 4,
+              "here": 1,
+              "what": 3,
+              "is": 3,
+              "your": 6,
+              "person": 1,
+              "describ": 1,
+              "yourself": 3,
+              "tell": 3,
+              "me": 3,
+              "who": 1,
+              "talk": 1,
+              "age": 4,
+              "how": 2,
+              "old": 2,
+              "platform": 1,
+              "i": 1,
+              "had": 1,
+              "like": 1,
+              "know": 1
+            },
+            "isEditing": false,
+            "className": "BrainNLU",
+            "classifier": {
+              "className": "BrainClassifier",
+              "settings": {
+                "language": "en",
+                "config": {
+                  "activation": "leaky-relu",
+                  "hiddenLayers": [],
+                  "iterations": 20000,
+                  "learningRate": 0.8,
+                  "errorThresh": 0.00005,
+                  "momentum": 0.5,
+                  "deltaErrorThresh": 0.000001,
+                  "maxDecimals": 9,
+                  "leakyReluAlpha": 0.06,
+                  "timeout": 120000
+                }
+              },
+              "labels": [],
+              "network": {
+                "sizes": [
+                  31,
+                  2
+                ],
+                "layers": [
+                  {
+                    "deploy": {},
+                    "project": {},
+                    "to": {},
+                    "environ": {},
+                    "pleas": {},
+                    "the": {},
+                    "can": {},
+                    "you": {},
+                    "say": {},
+                    "about": {},
+                    "whi": {},
+                    "are": {},
+                    "here": {},
+                    "what": {},
+                    "is": {},
+                    "your": {},
+                    "person": {},
+                    "describ": {},
+                    "yourself": {},
+                    "tell": {},
+                    "me": {},
+                    "who": {},
+                    "talk": {},
+                    "age": {},
+                    "how": {},
+                    "old": {},
+                    "platform": {},
+                    "i": {},
+                    "had": {},
+                    "like": {},
+                    "know": {}
+                  },
+                  {
+                    "deployment": {
+                      "bias": 0.880070388,
+                      "weights": {
+                        "deploy": 4.112243176,
+                        "project": 4.112243176,
+                        "to": 3.444985867,
+                        "environ": 4.112243176,
+                        "pleas": -0.185909912,
+                        "the": 0.192844003,
+                        "can": 0.378754258,
+                        "you": -0.566954732,
+                        "say": -0.236962855,
+                        "about": -0.488877773,
+                        "whi": -0.206093505,
+                        "are": -0.566456079,
+                        "here": -0.206093505,
+                        "what": -0.267276853,
+                        "is": -0.174652979,
+                        "your": -0.911638916,
+                        "person": -0.115361944,
+                        "describ": -0.385110676,
+                        "yourself": -0.494734854,
+                        "tell": -0.224723652,
+                        "me": -0.224723652,
+                        "who": -0.144745946,
+                        "talk": -0.027191283,
+                        "age": -0.744309187,
+                        "how": -0.122992672,
+                        "old": -0.122992672,
+                        "platform": -0.051967718,
+                        "i": -0.667248666,
+                        "had": -0.667248666,
+                        "like": -0.667248666,
+                        "know": -0.667248666
+                      }
+                    },
+                    "personality": {
+                      "bias": 7.508896828,
+                      "weights": {
+                        "deploy": -2.445487738,
+                        "project": -2.445487738,
+                        "to": -1.876227498,
+                        "environ": -2.445487738,
+                        "pleas": -0.48941654,
+                        "the": -1.811414123,
+                        "can": -1.321997643,
+                        "you": 4.845780373,
+                        "say": 0.903912306,
+                        "about": 3.532972813,
+                        "whi": 0.536885023,
+                        "are": 3.28038311,
+                        "here": 0.536885023,
+                        "what": 0.839693129,
+                        "is": -0.29401508,
+                        "your": 6.39383173,
+                        "person": 2.244097233,
+                        "describ": 4.272724152,
+                        "yourself": 4.918293476,
+                        "tell": 0.333328784,
+                        "me": 0.333328784,
+                        "who": 1.062589407,
+                        "talk": 0.756101906,
+                        "age": 2.31624651,
+                        "how": 0.547201276,
+                        "old": 0.547201276,
+                        "platform": 1.833479404,
+                        "i": 0.569267392,
+                        "had": 0.569267392,
+                        "like": 0.569267392,
+                        "know": 0.569267392
+                      }
+                    }
+                  }
+                ],
+                "trainOpts": {
+                  "iterations": 20000,
+                  "errorThresh": 0.00005,
+                  "deltaErrorThresh": 0.000001,
+                  "learningRate": 0.8,
+                  "momentum": 0.5,
+                  "leakyReluAlpha": 0.06,
+                  "maxDecimals": 9
+                }
+              }
+            }
+          },
+          "deployment": {
+            "settings": {
+              "language": "en",
+              "config": {
+                "activation": "leaky-relu",
+                "hiddenLayers": [],
+                "iterations": 20000,
+                "learningRate": 0.8,
+                "errorThresh": 0.00005,
+                "momentum": 0.5,
+                "deltaErrorThresh": 0.000001,
+                "maxDecimals": 9,
+                "leakyReluAlpha": 0.06,
+                "timeout": 120000
+              }
+            },
+            "language": "en",
+            "keepStopwords": true,
+            "docs": [
+              {
+                "intent": "deploy",
+                "utterance": [
+                  "deploy",
+                  "project",
+                  "to",
+                  "environ"
+                ],
+                "tokens": [
+                  "deploy",
+                  "project",
+                  "to",
+                  "environ"
+                ]
+              },
+              {
+                "intent": "deploy",
+                "utterance": [
+                  "pleas",
+                  "deploy",
+                  "the",
+                  "project",
+                  "to",
+                  "environ"
+                ],
+                "tokens": [
+                  "pleas",
+                  "deploy",
+                  "the",
+                  "project",
+                  "to",
+                  "environ"
+                ]
+              },
+              {
+                "intent": "deploy",
+                "utterance": [
+                  "can",
+                  "you",
+                  "deploy",
+                  "the",
+                  "project",
+                  "project",
+                  "to",
+                  "environ"
+                ],
+                "tokens": [
+                  "can",
+                  "you",
+                  "deploy",
+                  "the",
+                  "project",
+                  "project",
+                  "to",
+                  "environ"
+                ]
+              }
+            ],
+            "features": {
+              "deploy": 3,
+              "project": 4,
+              "to": 3,
+              "environ": 3,
+              "pleas": 1,
+              "the": 2,
+              "can": 1,
+              "you": 1
+            },
+            "isEditing": false,
+            "className": "BrainNLU",
+            "classifier": {
+              "className": "BrainClassifier",
+              "settings": {
+                "language": "en",
+                "config": {
+                  "activation": "leaky-relu",
+                  "hiddenLayers": [],
+                  "iterations": 20000,
+                  "learningRate": 0.8,
+                  "errorThresh": 0.00005,
+                  "momentum": 0.5,
+                  "deltaErrorThresh": 0.000001,
+                  "maxDecimals": 9,
+                  "leakyReluAlpha": 0.06,
+                  "timeout": 120000
+                }
+              },
+              "labels": [],
+              "network": {
+                "sizes": [
+                  8,
+                  1
+                ],
+                "layers": [
+                  {
+                    "deploy": {},
+                    "project": {},
+                    "to": {},
+                    "environ": {},
+                    "pleas": {},
+                    "the": {},
+                    "can": {},
+                    "you": {}
+                  },
+                  {
+                    "deploy": {
+                      "bias": 1.834657192,
+                      "weights": {
+                        "deploy": 3.671125412,
+                        "project": 3.671125412,
+                        "to": 3.671125412,
+                        "environ": 3.671125412,
+                        "pleas": 0.09637484,
+                        "the": 0.115806647,
+                        "can": 0.019432178,
+                        "you": 0.019432178
+                      }
+                    }
+                  }
+                ],
+                "trainOpts": {
+                  "iterations": 20000,
+                  "errorThresh": 0.00005,
+                  "deltaErrorThresh": 0.000001,
+                  "learningRate": 0.8,
+                  "momentum": 0.5,
+                  "leakyReluAlpha": 0.06,
+                  "maxDecimals": 9
+                }
+              }
+            }
+          },
+          "personality": {
+            "settings": {
+              "language": "en",
+              "config": {
+                "activation": "leaky-relu",
+                "hiddenLayers": [],
+                "iterations": 20000,
+                "learningRate": 0.8,
+                "errorThresh": 0.00005,
+                "momentum": 0.5,
+                "deltaErrorThresh": 0.000001,
+                "maxDecimals": 9,
+                "leakyReluAlpha": 0.06,
+                "timeout": 120000
+              }
+            },
+            "language": "en",
+            "keepStopwords": true,
+            "docs": [
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "say",
+                  "about",
+                  "you"
+                ],
+                "tokens": [
+                  "say",
+                  "about",
+                  "you"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "whi",
+                  "are",
+                  "you",
+                  "here"
+                ],
+                "tokens": [
+                  "whi",
+                  "are",
+                  "you",
+                  "here"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "what",
+                  "is",
+                  "your",
+                  "person"
+                ],
+                "tokens": [
+                  "what",
+                  "is",
+                  "your",
+                  "person"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "describ",
+                  "yourself"
+                ],
+                "tokens": [
+                  "describ",
+                  "yourself"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "tell",
+                  "me",
+                  "about",
+                  "yourself"
+                ],
+                "tokens": [
+                  "tell",
+                  "me",
+                  "about",
+                  "yourself"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "tell",
+                  "me",
+                  "about",
+                  "you"
+                ],
+                "tokens": [
+                  "tell",
+                  "me",
+                  "about",
+                  "you"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "what",
+                  "are",
+                  "you"
+                ],
+                "tokens": [
+                  "what",
+                  "are",
+                  "you"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "who",
+                  "are",
+                  "you"
+                ],
+                "tokens": [
+                  "who",
+                  "are",
+                  "you"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "talk",
+                  "about",
+                  "yourself"
+                ],
+                "tokens": [
+                  "talk",
+                  "about",
+                  "yourself"
+                ]
+              },
+              {
+                "intent": "agent.age",
+                "utterance": [
+                  "your",
+                  "age"
+                ],
+                "tokens": [
+                  "your",
+                  "age"
+                ]
+              },
+              {
+                "intent": "agent.age",
+                "utterance": [
+                  "how",
+                  "old",
+                  "is",
+                  "your",
+                  "platform"
+                ],
+                "tokens": [
+                  "how",
+                  "old",
+                  "is",
+                  "your",
+                  "platform"
+                ]
+              },
+              {
+                "intent": "agent.age",
+                "utterance": [
+                  "how",
+                  "old",
+                  "are",
+                  "you"
+                ],
+                "tokens": [
+                  "how",
+                  "old",
+                  "are",
+                  "you"
+                ]
+              },
+              {
+                "intent": "agent.age",
+                "utterance": [
+                  "what",
+                  "is",
+                  "your",
+                  "age"
+                ],
+                "tokens": [
+                  "what",
+                  "is",
+                  "your",
+                  "age"
+                ]
+              },
+              {
+                "intent": "agent.age",
+                "utterance": [
+                  "i",
+                  "had",
+                  "like",
+                  "to",
+                  "know",
+                  "your",
+                  "age"
+                ],
+                "tokens": [
+                  "i",
+                  "had",
+                  "like",
+                  "to",
+                  "know",
+                  "your",
+                  "age"
+                ]
+              },
+              {
+                "intent": "agent.age",
+                "utterance": [
+                  "tell",
+                  "me",
+                  "your",
+                  "age"
+                ],
+                "tokens": [
+                  "tell",
+                  "me",
+                  "your",
+                  "age"
+                ]
+              }
+            ],
+            "features": {
+              "say": 1,
+              "about": 4,
+              "you": 6,
+              "whi": 1,
+              "are": 4,
+              "here": 1,
+              "what": 3,
+              "is": 3,
+              "your": 6,
+              "person": 1,
+              "describ": 1,
+              "yourself": 3,
+              "tell": 3,
+              "me": 3,
+              "who": 1,
+              "talk": 1,
+              "age": 4,
+              "how": 2,
+              "old": 2,
+              "platform": 1,
+              "i": 1,
+              "had": 1,
+              "like": 1,
+              "to": 1,
+              "know": 1
+            },
+            "isEditing": false,
+            "className": "BrainNLU",
+            "classifier": {
+              "className": "BrainClassifier",
+              "settings": {
+                "language": "en",
+                "config": {
+                  "activation": "leaky-relu",
+                  "hiddenLayers": [],
+                  "iterations": 20000,
+                  "learningRate": 0.8,
+                  "errorThresh": 0.00005,
+                  "momentum": 0.5,
+                  "deltaErrorThresh": 0.000001,
+                  "maxDecimals": 9,
+                  "leakyReluAlpha": 0.06,
+                  "timeout": 120000
+                }
+              },
+              "labels": [],
+              "network": {
+                "sizes": [
+                  25,
+                  2
+                ],
+                "layers": [
+                  {
+                    "say": {},
+                    "about": {},
+                    "you": {},
+                    "whi": {},
+                    "are": {},
+                    "here": {},
+                    "what": {},
+                    "is": {},
+                    "your": {},
+                    "person": {},
+                    "describ": {},
+                    "yourself": {},
+                    "tell": {},
+                    "me": {},
+                    "who": {},
+                    "talk": {},
+                    "age": {},
+                    "how": {},
+                    "old": {},
+                    "platform": {},
+                    "i": {},
+                    "had": {},
+                    "like": {},
+                    "to": {},
+                    "know": {}
+                  },
+                  {
+                    "agent.acquaintance": {
+                      "bias": 5.182947636,
+                      "weights": {
+                        "say": 1.324866295,
+                        "about": 4.379236221,
+                        "you": 5.814659119,
+                        "whi": 1.885637403,
+                        "are": 1.90475893,
+                        "here": 1.885637403,
+                        "what": 3.775090933,
+                        "is": 1.076155305,
+                        "your": -1.411110044,
+                        "person": 8.042757034,
+                        "describ": 5.493003368,
+                        "yourself": 5.962343693,
+                        "tell": 0.614811063,
+                        "me": 0.614811063,
+                        "who": 3.770613909,
+                        "talk": 1.119748712,
+                        "age": -8.622855186,
+                        "how": -6.450414181,
+                        "old": -6.450414181,
+                        "platform": -0.831011474,
+                        "i": -0.223095134,
+                        "had": -0.223095134,
+                        "like": -0.223095134,
+                        "to": -0.223095134,
+                        "know": -0.223095134
+                      }
+                    },
+                    "agent.age": {
+                      "bias": 1.046695352,
+                      "weights": {
+                        "say": -0.614999473,
+                        "about": -2.203132391,
+                        "you": -0.46622473,
+                        "whi": -1.460579634,
+                        "are": 1.154829741,
+                        "here": -1.460579634,
+                        "what": -1.447214007,
+                        "is": 0.973123312,
+                        "your": 3.721794844,
+                        "person": -4.830057144,
+                        "describ": -0.58659786,
+                        "yourself": -1.16867578,
+                        "tell": -0.146092519,
+                        "me": -0.146092519,
+                        "who": -2.346065283,
+                        "talk": 0,
+                        "age": 12.169662476,
+                        "how": 7.381809711,
+                        "old": 7.381809711,
+                        "platform": -3.617812157,
+                        "i": -0.050698947,
+                        "had": -0.050698947,
+                        "like": -0.050698947,
+                        "to": -0.050698947,
+                        "know": -0.050698947
+                      }
+                    }
+                  }
+                ],
+                "trainOpts": {
+                  "iterations": 20000,
+                  "errorThresh": 0.00005,
+                  "deltaErrorThresh": 0.000001,
+                  "learningRate": 0.8,
+                  "momentum": 0.5,
+                  "leakyReluAlpha": 0.06,
+                  "maxDecimals": 9
+                }
+              }
+            }
+          }
+        }
+      },
+      "tl": {
+        "settings": {
+          "language": "tl",
+          "config": {
+            "activation": "leaky-relu",
+            "hiddenLayers": [],
+            "iterations": 20000,
+            "learningRate": 0.8,
+            "errorThresh": 0.00005,
+            "momentum": 0.5,
+            "deltaErrorThresh": 0.000001,
+            "maxDecimals": 9,
+            "leakyReluAlpha": 0.06,
+            "timeout": 120000
+          }
+        },
+        "language": "tl",
+        "nluClassName": "BrainNLU",
+        "useMasterDomain": true,
+        "trainByDomain": true,
+        "keepStopwords": true,
+        "stemDict": {
+          "ila,kana,taon": {
+            "domain": "personality",
+            "intent": "agent.age"
+          },
+          "ano,edad,mo": {
+            "domain": "personality",
+            "intent": "agent.age"
+          },
+          "ilan,kana": {
+            "domain": "personality",
+            "intent": "agent.age"
+          },
+          "ka,sino": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "ano,mo,purpose": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "alan,ano,mo": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          },
+          "ka,mo,sa,sabi,sarili,tungkol": {
+            "domain": "personality",
+            "intent": "agent.acquaintance"
+          }
+        },
+        "intentDict": {
+          "agent.age": "personality",
+          "agent.acquaintance": "personality"
+        },
+        "useStemDict": true,
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "language": "tl",
+              "config": {
+                "activation": "leaky-relu",
+                "hiddenLayers": [],
+                "iterations": 20000,
+                "learningRate": 0.8,
+                "errorThresh": 0.00005,
+                "momentum": 0.5,
+                "deltaErrorThresh": 0.000001,
+                "maxDecimals": 9,
+                "leakyReluAlpha": 0.06,
+                "timeout": 120000
+              }
+            },
+            "language": "tl",
+            "keepStopwords": true,
+            "docs": [
+              {
+                "intent": "personality",
+                "utterance": [
+                  "ila",
+                  "taon",
+                  "kana"
+                ],
+                "tokens": [
+                  "ila",
+                  "taon",
+                  "kana"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "ano",
+                  "edad",
+                  "mo"
+                ],
+                "tokens": [
+                  "ano",
+                  "edad",
+                  "mo"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "ilan",
+                  "kana"
+                ],
+                "tokens": [
+                  "ilan",
+                  "kana"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "sino",
+                  "ka"
+                ],
+                "tokens": [
+                  "sino",
+                  "ka"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "ano",
+                  "purpose",
+                  "mo"
+                ],
+                "tokens": [
+                  "ano",
+                  "purpose",
+                  "mo"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "ano",
+                  "alan",
+                  "mo"
+                ],
+                "tokens": [
+                  "ano",
+                  "alan",
+                  "mo"
+                ]
+              },
+              {
+                "intent": "personality",
+                "utterance": [
+                  "sabi",
+                  "ka",
+                  "tungkol",
+                  "sa",
+                  "sarili",
+                  "mo"
+                ],
+                "tokens": [
+                  "sabi",
+                  "ka",
+                  "tungkol",
+                  "sa",
+                  "sarili",
+                  "mo"
+                ]
+              }
+            ],
+            "features": {
+              "ila": 1,
+              "taon": 1,
+              "kana": 2,
+              "ano": 3,
+              "edad": 1,
+              "mo": 4,
+              "ilan": 1,
+              "sino": 1,
+              "ka": 2,
+              "purpose": 1,
+              "alan": 1,
+              "sabi": 1,
+              "tungkol": 1,
+              "sa": 1,
+              "sarili": 1
+            },
+            "isEditing": false,
+            "className": "BrainNLU",
+            "classifier": {
+              "className": "BrainClassifier",
+              "settings": {
+                "language": "tl",
+                "config": {
+                  "activation": "leaky-relu",
+                  "hiddenLayers": [],
+                  "iterations": 20000,
+                  "learningRate": 0.8,
+                  "errorThresh": 0.00005,
+                  "momentum": 0.5,
+                  "deltaErrorThresh": 0.000001,
+                  "maxDecimals": 9,
+                  "leakyReluAlpha": 0.06,
+                  "timeout": 120000
+                }
+              },
+              "labels": [],
+              "network": {
+                "layers": [],
+                "trainOpts": {
+                  "iterations": 20000,
+                  "errorThresh": 0.00005,
+                  "deltaErrorThresh": 0.000001,
+                  "learningRate": 0.8,
+                  "momentum": 0.5,
+                  "leakyReluAlpha": 0.06,
+                  "maxDecimals": 9
+                }
+              }
+            }
+          },
+          "personality": {
+            "settings": {
+              "language": "tl",
+              "config": {
+                "activation": "leaky-relu",
+                "hiddenLayers": [],
+                "iterations": 20000,
+                "learningRate": 0.8,
+                "errorThresh": 0.00005,
+                "momentum": 0.5,
+                "deltaErrorThresh": 0.000001,
+                "maxDecimals": 9,
+                "leakyReluAlpha": 0.06,
+                "timeout": 120000
+              }
+            },
+            "language": "tl",
+            "keepStopwords": true,
+            "docs": [
+              {
+                "intent": "agent.age",
+                "utterance": [
+                  "ila",
+                  "taon",
+                  "kana"
+                ],
+                "tokens": [
+                  "ila",
+                  "taon",
+                  "kana"
+                ]
+              },
+              {
+                "intent": "agent.age",
+                "utterance": [
+                  "ano",
+                  "edad",
+                  "mo"
+                ],
+                "tokens": [
+                  "ano",
+                  "edad",
+                  "mo"
+                ]
+              },
+              {
+                "intent": "agent.age",
+                "utterance": [
+                  "ilan",
+                  "kana"
+                ],
+                "tokens": [
+                  "ilan",
+                  "kana"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "sino",
+                  "ka"
+                ],
+                "tokens": [
+                  "sino",
+                  "ka"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "ano",
+                  "purpose",
+                  "mo"
+                ],
+                "tokens": [
+                  "ano",
+                  "purpose",
+                  "mo"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "ano",
+                  "alan",
+                  "mo"
+                ],
+                "tokens": [
+                  "ano",
+                  "alan",
+                  "mo"
+                ]
+              },
+              {
+                "intent": "agent.acquaintance",
+                "utterance": [
+                  "sabi",
+                  "ka",
+                  "tungkol",
+                  "sa",
+                  "sarili",
+                  "mo"
+                ],
+                "tokens": [
+                  "sabi",
+                  "ka",
+                  "tungkol",
+                  "sa",
+                  "sarili",
+                  "mo"
+                ]
+              }
+            ],
+            "features": {
+              "ila": 1,
+              "taon": 1,
+              "kana": 2,
+              "ano": 3,
+              "edad": 1,
+              "mo": 4,
+              "ilan": 1,
+              "sino": 1,
+              "ka": 2,
+              "purpose": 1,
+              "alan": 1,
+              "sabi": 1,
+              "tungkol": 1,
+              "sa": 1,
+              "sarili": 1
+            },
+            "isEditing": false,
+            "className": "BrainNLU",
+            "classifier": {
+              "className": "BrainClassifier",
+              "settings": {
+                "language": "tl",
+                "config": {
+                  "activation": "leaky-relu",
+                  "hiddenLayers": [],
+                  "iterations": 20000,
+                  "learningRate": 0.8,
+                  "errorThresh": 0.00005,
+                  "momentum": 0.5,
+                  "deltaErrorThresh": 0.000001,
+                  "maxDecimals": 9,
+                  "leakyReluAlpha": 0.06,
+                  "timeout": 120000
+                }
+              },
+              "labels": [],
+              "network": {
+                "sizes": [
+                  15,
+                  2
+                ],
+                "layers": [
+                  {
+                    "ila": {},
+                    "taon": {},
+                    "kana": {},
+                    "ano": {},
+                    "edad": {},
+                    "mo": {},
+                    "ilan": {},
+                    "sino": {},
+                    "ka": {},
+                    "purpose": {},
+                    "alan": {},
+                    "sabi": {},
+                    "tungkol": {},
+                    "sa": {},
+                    "sarili": {}
+                  },
+                  {
+                    "agent.age": {
+                      "bias": 3.489650011,
+                      "weights": {
+                        "ila": 2.648900986,
+                        "taon": 2.648900986,
+                        "kana": 7.897424698,
+                        "ano": 1.109911919,
+                        "edad": 11.310882568,
+                        "mo": 0.563890159,
+                        "ilan": 5.248522758,
+                        "sino": -1.478338718,
+                        "ka": -2.024362087,
+                        "purpose": -5.127892017,
+                        "alan": -5.073077202,
+                        "sabi": -0.546022952,
+                        "tungkol": -0.546022952,
+                        "sa": -0.546022952,
+                        "sarili": -0.546022952
+                      }
+                    },
+                    "agent.acquaintance": {
+                      "bias": 3.712246895,
+                      "weights": {
+                        "ila": -0.885037124,
+                        "taon": -0.885037124,
+                        "kana": -2.289564371,
+                        "ano": 2.903284073,
+                        "edad": -9.957381248,
+                        "mo": 3.552735567,
+                        "ilan": -1.404526949,
+                        "sino": 6.157158375,
+                        "ka": 6.806610107,
+                        "purpose": 6.461703777,
+                        "alan": 6.398966312,
+                        "sabi": 0.649449766,
+                        "tungkol": 0.649449766,
+                        "sa": 0.649449766,
+                        "sarili": 0.649449766
+                      }
+                    }
+                  }
+                ],
+                "trainOpts": {
+                  "iterations": 20000,
+                  "errorThresh": 0.00005,
+                  "deltaErrorThresh": 0.000001,
+                  "learningRate": 0.8,
+                  "momentum": 0.5,
+                  "leakyReluAlpha": 0.06,
+                  "maxDecimals": 9
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extraSentences": [
+      [
+        "en",
+        "deploy %project% to %environment%"
+      ],
+      [
+        "en",
+        "please deploy the %project% to %environment%"
+      ],
+      [
+        "en",
+        "can you deploy the project %project% to %environment%"
+      ],
+      [
+        "en",
+        "say about you"
+      ],
+      [
+        "en",
+        "why are you here"
+      ],
+      [
+        "en",
+        "what is your personality"
+      ],
+      [
+        "en",
+        "describe yourself"
+      ],
+      [
+        "en",
+        "tell me about yourself"
+      ],
+      [
+        "en",
+        "tell me about you"
+      ],
+      [
+        "en",
+        "what are you"
+      ],
+      [
+        "en",
+        "who are you"
+      ],
+      [
+        "en",
+        "talk about yourself"
+      ],
+      [
+        "en",
+        "your age"
+      ],
+      [
+        "en",
+        "how old is your platform"
+      ],
+      [
+        "en",
+        "how old are you"
+      ],
+      [
+        "en",
+        "what's your age"
+      ],
+      [
+        "en",
+        "I'd like to know your age"
+      ],
+      [
+        "en",
+        "tell me your age"
+      ],
+      [
+        "tl",
+        "ilang taon kana?"
+      ],
+      [
+        "tl",
+        "anong edad mo?"
+      ],
+      [
+        "tl",
+        "ilan kana?"
+      ],
+      [
+        "tl",
+        "sino ka?"
+      ],
+      [
+        "tl",
+        "anong purpose mo?"
+      ],
+      [
+        "tl",
+        "ano pangalan mo?"
+      ],
+      [
+        "tl",
+        "magsabi ka tungkol sa sarili mo"
+      ]
+    ]
+  },
+  "nerManager": {
+    "settings": {},
+    "threshold": 0.8,
+    "builtins": [
+      "Number",
+      "Ordinal",
+      "Percentage",
+      "Age",
+      "Currency",
+      "Dimension",
+      "Temperature",
+      "DateTime",
+      "PhoneNumber",
+      "IpAddress",
+      "Boolean",
+      "Email",
+      "Hashtag",
+      "URL"
+    ],
+    "namedEntities": {}
+  },
+  "slotManager": {},
+  "responses": {},
+  "actions": {}
+}

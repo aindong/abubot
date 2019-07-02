@@ -19,7 +19,9 @@
     "pino": "^5.12.6"
   },
   "scripts": {
-    "start": "nodemon index.js | pino-pretty"
+    "watch": "nodemon index.js | pino-pretty",
+    "start": "node train.js && NODE_ENV=production node index.js",
+    "train": "node train.js"
   },
   "devDependencies": {
     "nodemon": "^1.19.1",
