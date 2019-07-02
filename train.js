@@ -3,6 +3,19 @@ const modelPath = "model.nlp";
 
 async function train() {
   const manager = new NlpManager({ languages: ["en", "tl"] });
+  manager.addNamedEntityText(
+    "project",
+    "robinsons",
+    ["en"],
+    ["luxuria", "communities", "residences", "omnibus"]
+  );
+
+  manager.addNamedEntityText(
+    "environment",
+    "environment",
+    ["en"],
+    ["staging", "develop", "production"]
+  );
 
   manager.assignDomain("en", "deploy", "deployment");
   manager.addDocument("en", "deploy %project% to %environment%", "deploy");

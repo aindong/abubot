@@ -1,5 +1,3 @@
-const currentProjects = ["luxuria", "communities", "residences", "omnibus"];
-
 module.exports = slack => {
   return {
     // Agent specific information actions
