@@ -5,14 +5,7 @@ const token = process.env.SLACK_TOKEN;
 // initialize webclient
 const web = new WebClient(token);
 
-const availableCommands = [
-  "deploy",
-  "padeploy",
-  "pa-deploy",
-  "hi",
-  "hey",
-  "how"
-];
+const availableCommands = ["deploy", "hi", "hey", "how"];
 
 async function processMentionCommand(body) {
   const { event } = body;
@@ -26,6 +19,16 @@ async function processMentionCommand(body) {
       channel: event.channel
     });
   }
+
+  const cliCommand = command[1].toLowerCase();
+  if (cliCommand.match("/deploy/")) {
+    console.log("deploy command found");
+    await deployProgram(command);
+  }
+}
+
+async function deployProgram(command) {
+  console.log(`the deploy command is: ${command.join(",")}`);
 }
 
 module.exports = async body => {
