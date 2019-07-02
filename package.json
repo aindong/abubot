@@ -21,9 +21,11 @@
   "scripts": {
     "watch": "nodemon index.js | pino-pretty",
     "start": "node train.js && NODE_ENV=production node index.js",
-    "train": "node train.js"
+    "train": "node train.js",
+    "test": "mocha"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^6.1.4",
     "nodemon": "^1.19.1",
     "pino-pretty": "^3.2.0"

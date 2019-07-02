@@ -1717,9 +1717,58 @@
       "Hashtag",
       "URL"
     ],
-    "namedEntities": {}
+    "namedEntities": {
+      "project": {
+        "type": "enum",
+        "name": "project",
+        "localeFallback": {
+          "*": "en"
+        },
+        "locales": {
+          "en": {
+            "robinsons": [
+              "luxuria",
+              "communities",
+              "residences",
+              "omnibus"
+            ]
+          }
+        }
+      },
+      "environment": {
+        "type": "enum",
+        "name": "environment",
+        "localeFallback": {
+          "*": "en"
+        },
+        "locales": {
+          "en": {
+            "environment": [
+              "staging",
+              "develop",
+              "production"
+            ]
+          }
+        }
+      }
+    }
   },
-  "slotManager": {},
+  "slotManager": {
+    "deploy": {
+      "project": {
+        "intent": "deploy",
+        "entity": "project",
+        "mandatory": false,
+        "locales": {}
+      },
+      "environment": {
+        "intent": "deploy",
+        "entity": "environment",
+        "mandatory": false,
+        "locales": {}
+      }
+    }
+  },
   "responses": {},
   "actions": {}
 }
