@@ -2,6 +2,7 @@
 
 const { WebClient } = require("@slack/web-api");
 const comprehend = require("./comprehension");
+const actions = require("./actions");
 const token = process.env.SLACK_TOKEN;
 // initialize webclient
 const web = new WebClient(token);
