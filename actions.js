@@ -1,4 +1,11 @@
 module.exports = slack => {
+  const sendErrorMessage = async message => {
+    await slack.chat.postMessage({
+      text: message,
+      channel: event.channel
+    });
+  };
+
   return {
     // Agent specific information actions
     "agent.age": async body => {
@@ -20,13 +27,42 @@ module.exports = slack => {
     },
 
     // Deployment action
-    deploy: async body => {
+    deploy: async (body, classification) => {
       const { event } = body;
 
+      // Initial
       await slack.chat.postMessage({
         text: `Sandali lamang po *master* <@${
           event.user
         }>, ang iyong proyekto ay aking hinahanap`,
+        channel: event.channel
+      });
+
+      // Detect for errors
+      if (classification.entities.length < 2) {
+        return await sendErrorMessage(
+          "Pasensya kana master, di ko mahanap ang iyong proyekto"
+        );
+      }
+
+      const environment = classification.entities.find(
+        item => item.entity === "environment"
+      );
+      const project = classification.entities.find(
+        item => item.entity === "project"
+      );
+
+      if (!environment || !project) {
+        return await sendErrorMessage(
+          "Pasensya kana master, di ko mahanap ang iyong proyekto"
+        );
+      }
+
+      // Say that we found the project
+      await slack.chat.postMessage({
+        text: `Paumanhin sa paghihintay. \n Idedeploy ko na ang ${
+          project.utteranceText
+        } sa ${environment.utteranceText}.`,
         channel: event.channel
       });
     }

@@ -30,7 +30,11 @@ async function processMentionCommand(body) {
 
   // Execute action
   const actionIntent = classification.intent;
-  await actionController[actionIntent](body);
+  if (actionIntent === "deploy") {
+    await actionController[actionIntent](body, classification);
+  } else {
+    await actionController[actionIntent](body);
+  }
 }
 
 module.exports = async body => {
