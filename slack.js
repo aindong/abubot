@@ -16,6 +16,8 @@ const availableCommands = [
 
 async function processMentionCommand(body) {
   const { event } = body;
+  // inspect body
+  console.log(body);
   // split text by space
   const command = event.text.split(" ");
   if (!availableCommands.includes(command[1])) {
