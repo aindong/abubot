@@ -21,6 +21,10 @@ router.get("/events", ctx => {
   return ctx;
 });
 
+router.post("/events", ctx => {
+  return ctx;
+});
+
 // Fallback
 router.get("/*", ctx => {
   ctx.body = "What are you looking for?";
