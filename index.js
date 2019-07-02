@@ -18,21 +18,18 @@ app.use(bodyParser);
 // Routes
 router.get("/events", ctx => {
   ctx.body = "This is a slack event";
-  return ctx;
 });
 
 router.post("/events", ctx => {
   const body = ctx.request.body;
   console.log(body);
   ctx.body = body.challenge;
-  return ctx;
 });
 
 // Fallback
 router.get("/*", ctx => {
   ctx.body = "What are you looking for?";
   ctx.status = 404;
-  return ctx;
 });
 
 // Router middleware
