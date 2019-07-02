@@ -14,7 +14,7 @@ async function processMentionCommand(body) {
   console.log(body);
   // Train the nlp
   const classifier = await comprehend();
-  const classification = await comprehend.process(classifier, event.text);
+  const classification = await classifier.process(classifier, event.text);
   console.log(classification);
 
   if (classification.intent === "None") {

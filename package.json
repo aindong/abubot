@@ -24,6 +24,7 @@
     "train": "node train.js"
   },
   "devDependencies": {
+    "mocha": "^6.1.4",
     "nodemon": "^1.19.1",
     "pino-pretty": "^3.2.0"
   }
