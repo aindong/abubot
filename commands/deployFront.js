@@ -35,6 +35,6 @@ module.exports = async (project, environment) => {
   });
 
   child.on("close", code => {
-    console.log(`child process exited with code ${code}`);
+    throw new Error(`child process exited with code ${code}`);
   });
 };

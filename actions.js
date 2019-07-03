@@ -71,14 +71,17 @@ module.exports = slack => {
       try {
         await deployFront(project.utteranceText, environment.utteranceText);
       } catch (err) {
+        let error = err.message;
         if (err.message.match(/Deploy command not found/)) {
-          await slack.chat.postMessage({
-            text: `Paumanhin, ngunit hindi ko mahanap ang deployment command para sa project na \n${
-              project.utteranceText
-            } at environment ${environment.utteranceText}`,
-            channel: event.channel
-          });
+          error = `Paumanhin, ngunit hindi ko mahanap ang deployment command para sa project na \n${
+            project.utteranceText
+          } at environment ${environment.utteranceText}`;
         }
+
+        await slack.chat.postMessage({
+          text: error,
+          channel: event.channel
+        });
       }
     }
   };
