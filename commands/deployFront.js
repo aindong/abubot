@@ -16,14 +16,14 @@ module.exports = async (project, environment) => {
   const env = getEnvironment(environment);
   const projectPath = process.env.PROJECT_PATH || ".";
 
-  let command = `${projectPath}/${project}/deploy-${env}.sh`;
+  let command = `./deploy-${env}.sh`;
   let fileExists = fs.existsSync(command);
 
   if (!fileExists) {
     throw new Error(`Deploy command not found, ${command}`);
   }
 
-  const child = spawn(command);
+  const child = spawn(command, { cwd: `${projectPath}/${project}` });
 
   // Make sure stdout will output string
   child.stdout.setEncoding("utf8");
