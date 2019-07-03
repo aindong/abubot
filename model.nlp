@@ -19,7 +19,8 @@
       },
       "tl": {
         "agent.age": "personality",
-        "agent.acquaintance": "personality"
+        "agent.acquaintance": "personality",
+        "deploy": "deployment"
       }
     },
     "domainManagers": {
@@ -116,6 +117,14 @@
           "age,me,tell,your": {
             "domain": "personality",
             "intent": "agent.age"
+          },
+          "ako,environ,environ,ng,padeploy,project,sa": {
+            "domain": "deployment",
+            "intent": "deploy"
+          },
+          "ako,environ,ng,padeploy,project,sa,salamat": {
+            "domain": "deployment",
+            "intent": "deploy"
           }
         },
         "intentDict": {
@@ -417,13 +426,55 @@
                   "your",
                   "age"
                 ]
+              },
+              {
+                "intent": "deployment",
+                "utterance": [
+                  "padeploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environ",
+                  "environ"
+                ],
+                "tokens": [
+                  "padeploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environ",
+                  "environ"
+                ]
+              },
+              {
+                "intent": "deployment",
+                "utterance": [
+                  "padeploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environ",
+                  "salamat"
+                ],
+                "tokens": [
+                  "padeploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environ",
+                  "salamat"
+                ]
               }
             ],
             "features": {
               "deploy": 3,
-              "project": 4,
+              "project": 6,
               "to": 4,
-              "environ": 3,
+              "environ": 6,
               "pleas": 1,
               "the": 2,
               "can": 1,
@@ -450,7 +501,12 @@
               "i": 1,
               "had": 1,
               "like": 1,
-              "know": 1
+              "know": 1,
+              "padeploy": 2,
+              "ako": 2,
+              "ng": 2,
+              "sa": 2,
+              "salamat": 1
             },
             "isEditing": false,
             "className": "BrainNLU",
@@ -474,7 +530,7 @@
               "labels": [],
               "network": {
                 "sizes": [
-                  31,
+                  36,
                   2
                 ],
                 "layers": [
@@ -509,79 +565,94 @@
                     "i": {},
                     "had": {},
                     "like": {},
-                    "know": {}
+                    "know": {},
+                    "padeploy": {},
+                    "ako": {},
+                    "ng": {},
+                    "sa": {},
+                    "salamat": {}
                   },
                   {
                     "deployment": {
-                      "bias": 0.880070388,
+                      "bias": 1.123052597,
                       "weights": {
-                        "deploy": 4.112243176,
-                        "project": 4.112243176,
-                        "to": 3.444985867,
-                        "environ": 4.112243176,
-                        "pleas": -0.185909912,
-                        "the": 0.192844003,
-                        "can": 0.378754258,
-                        "you": -0.566954732,
-                        "say": -0.236962855,
-                        "about": -0.488877773,
-                        "whi": -0.206093505,
-                        "are": -0.566456079,
-                        "here": -0.206093505,
-                        "what": -0.267276853,
-                        "is": -0.174652979,
-                        "your": -0.911638916,
-                        "person": -0.115361944,
-                        "describ": -0.385110676,
-                        "yourself": -0.494734854,
-                        "tell": -0.224723652,
-                        "me": -0.224723652,
-                        "who": -0.144745946,
-                        "talk": -0.027191283,
-                        "age": -0.744309187,
-                        "how": -0.122992672,
-                        "old": -0.122992672,
-                        "platform": -0.051967718,
-                        "i": -0.667248666,
-                        "had": -0.667248666,
-                        "like": -0.667248666,
-                        "know": -0.667248666
+                        "deploy": 3.280650377,
+                        "project": 4.776621819,
+                        "to": 2.703983784,
+                        "environ": 4.776621819,
+                        "pleas": -0.205377415,
+                        "the": 0.213678047,
+                        "can": 0.419056475,
+                        "you": -0.626945138,
+                        "say": -0.272450596,
+                        "about": -0.568240345,
+                        "whi": -0.232618913,
+                        "are": -0.62003684,
+                        "here": -0.232618913,
+                        "what": -0.287230849,
+                        "is": -0.190646365,
+                        "your": -0.851807058,
+                        "person": -0.125621781,
+                        "describ": -0.490248084,
+                        "yourself": -0.632522106,
+                        "tell": -0.235947892,
+                        "me": -0.235947892,
+                        "who": -0.159392565,
+                        "talk": -0.059841901,
+                        "age": -0.668484032,
+                        "how": -0.131440863,
+                        "old": -0.131440863,
+                        "platform": -0.057701264,
+                        "i": -0.576659739,
+                        "had": -0.576659739,
+                        "like": -0.576659739,
+                        "know": -0.576659739,
+                        "padeploy": 1.495972872,
+                        "ako": 1.495972872,
+                        "ng": 1.495972872,
+                        "sa": 1.495972872,
+                        "salamat": 0.012165417
                       }
                     },
                     "personality": {
-                      "bias": 7.508896828,
+                      "bias": 7.339363098,
                       "weights": {
-                        "deploy": -2.445487738,
-                        "project": -2.445487738,
-                        "to": -1.876227498,
-                        "environ": -2.445487738,
-                        "pleas": -0.48941654,
-                        "the": -1.811414123,
-                        "can": -1.321997643,
-                        "you": 4.845780373,
-                        "say": 0.903912306,
-                        "about": 3.532972813,
-                        "whi": 0.536885023,
-                        "are": 3.28038311,
-                        "here": 0.536885023,
-                        "what": 0.839693129,
-                        "is": -0.29401508,
-                        "your": 6.39383173,
-                        "person": 2.244097233,
-                        "describ": 4.272724152,
-                        "yourself": 4.918293476,
-                        "tell": 0.333328784,
-                        "me": 0.333328784,
-                        "who": 1.062589407,
-                        "talk": 0.756101906,
-                        "age": 2.31624651,
-                        "how": 0.547201276,
-                        "old": 0.547201276,
-                        "platform": 1.833479404,
-                        "i": 0.569267392,
-                        "had": 0.569267392,
-                        "like": 0.569267392,
-                        "know": 0.569267392
+                        "deploy": -2.01629734,
+                        "project": -2.996337652,
+                        "to": -1.528822422,
+                        "environ": -2.996337652,
+                        "pleas": -0.330700308,
+                        "the": -1.540341139,
+                        "can": -1.209640622,
+                        "you": 4.956851006,
+                        "say": 0.944610834,
+                        "about": 3.555268526,
+                        "whi": 0.549391031,
+                        "are": 3.315205574,
+                        "here": 0.549391031,
+                        "what": 0.846318901,
+                        "is": -0.271974772,
+                        "your": 6.479902744,
+                        "person": 2.283356428,
+                        "describ": 4.329034328,
+                        "yourself": 5.033012867,
+                        "tell": 0.338181138,
+                        "me": 0.338181138,
+                        "who": 1.087237,
+                        "talk": 0.790067792,
+                        "age": 2.351240873,
+                        "how": 0.560287237,
+                        "old": 0.560287237,
+                        "platform": 1.845295906,
+                        "i": 0.487481236,
+                        "had": 0.487481236,
+                        "like": 0.487481236,
+                        "know": 0.487481236,
+                        "padeploy": -0.980043113,
+                        "ako": -0.980043113,
+                        "ng": -0.980043113,
+                        "sa": -0.980043113,
+                        "salamat": -0.391074926
                       }
                     }
                   }
@@ -673,17 +744,64 @@
                   "to",
                   "environ"
                 ]
+              },
+              {
+                "intent": "deploy",
+                "utterance": [
+                  "padeploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environ",
+                  "environ"
+                ],
+                "tokens": [
+                  "padeploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environ",
+                  "environ"
+                ]
+              },
+              {
+                "intent": "deploy",
+                "utterance": [
+                  "padeploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environ",
+                  "salamat"
+                ],
+                "tokens": [
+                  "padeploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environ",
+                  "salamat"
+                ]
               }
             ],
             "features": {
               "deploy": 3,
-              "project": 4,
+              "project": 6,
               "to": 3,
-              "environ": 3,
+              "environ": 6,
               "pleas": 1,
               "the": 2,
               "can": 1,
-              "you": 1
+              "you": 1,
+              "padeploy": 2,
+              "ako": 2,
+              "ng": 2,
+              "sa": 2,
+              "salamat": 1
             },
             "isEditing": false,
             "className": "BrainNLU",
@@ -707,7 +825,7 @@
               "labels": [],
               "network": {
                 "sizes": [
-                  8,
+                  13,
                   1
                 ],
                 "layers": [
@@ -719,20 +837,30 @@
                     "pleas": {},
                     "the": {},
                     "can": {},
-                    "you": {}
+                    "you": {},
+                    "padeploy": {},
+                    "ako": {},
+                    "ng": {},
+                    "sa": {},
+                    "salamat": {}
                   },
                   {
                     "deploy": {
-                      "bias": 1.834657192,
+                      "bias": 2.154574633,
                       "weights": {
-                        "deploy": 3.671125412,
-                        "project": 3.671125412,
-                        "to": 3.671125412,
-                        "environ": 3.671125412,
-                        "pleas": 0.09637484,
-                        "the": 0.115806647,
-                        "can": 0.019432178,
-                        "you": 0.019432178
+                        "deploy": 2.853168488,
+                        "project": 4.311623096,
+                        "to": 2.853168488,
+                        "environ": 4.311623096,
+                        "pleas": 0.115304276,
+                        "the": 0.137754768,
+                        "can": 0.022450591,
+                        "you": 0.022450591,
+                        "padeploy": 1.45845294,
+                        "ako": 1.45845294,
+                        "ng": 1.45845294,
+                        "sa": 1.45845294,
+                        "salamat": 0.103084244
                       }
                     }
                   }
@@ -1192,11 +1320,16 @@
           "ka,mo,sa,sabi,sarili,tungkol": {
             "domain": "personality",
             "intent": "agent.acquaintance"
+          },
+          "ako,deploy,environment,ng,project,sa": {
+            "domain": "deployment",
+            "intent": "deploy"
           }
         },
         "intentDict": {
           "agent.age": "personality",
-          "agent.acquaintance": "personality"
+          "agent.acquaintance": "personality",
+          "deploy": "deployment"
         },
         "useStemDict": true,
         "domains": {
@@ -1311,6 +1444,25 @@
                   "sarili",
                   "mo"
                 ]
+              },
+              {
+                "intent": "deployment",
+                "utterance": [
+                  "deploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environment"
+                ],
+                "tokens": [
+                  "deploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environment"
+                ]
               }
             ],
             "features": {
@@ -1327,8 +1479,13 @@
               "alan": 1,
               "sabi": 1,
               "tungkol": 1,
-              "sa": 1,
-              "sarili": 1
+              "sa": 2,
+              "sarili": 1,
+              "deploy": 1,
+              "ako": 1,
+              "ng": 1,
+              "project": 1,
+              "environment": 1
             },
             "isEditing": false,
             "className": "BrainNLU",
@@ -1351,7 +1508,86 @@
               },
               "labels": [],
               "network": {
-                "layers": [],
+                "sizes": [
+                  20,
+                  2
+                ],
+                "layers": [
+                  {
+                    "ila": {},
+                    "taon": {},
+                    "kana": {},
+                    "ano": {},
+                    "edad": {},
+                    "mo": {},
+                    "ilan": {},
+                    "sino": {},
+                    "ka": {},
+                    "purpose": {},
+                    "alan": {},
+                    "sabi": {},
+                    "tungkol": {},
+                    "sa": {},
+                    "sarili": {},
+                    "deploy": {},
+                    "ako": {},
+                    "ng": {},
+                    "project": {},
+                    "environment": {}
+                  },
+                  {
+                    "personality": {
+                      "bias": 6.849527836,
+                      "weights": {
+                        "ila": 2.039359331,
+                        "taon": 2.039359331,
+                        "kana": 5.882474422,
+                        "ano": 4.039182663,
+                        "edad": 1.493519425,
+                        "mo": 4.4495821,
+                        "ilan": 3.843113184,
+                        "sino": 4.576615334,
+                        "ka": 4.987014771,
+                        "purpose": 1.299476385,
+                        "alan": 1.246187329,
+                        "sabi": 0.410397947,
+                        "tungkol": 0.410397947,
+                        "sa": -0.799719214,
+                        "sarili": 0.410397947,
+                        "deploy": -1.210117459,
+                        "ako": -1.210117459,
+                        "ng": -1.210117459,
+                        "project": -1.210117459,
+                        "environment": -1.210117459
+                      }
+                    },
+                    "deployment": {
+                      "bias": 0.717751205,
+                      "weights": {
+                        "ila": -0.178085238,
+                        "taon": -0.178085238,
+                        "kana": -0.438812733,
+                        "ano": -0.214068681,
+                        "edad": -0.096241996,
+                        "mo": -0.73254782,
+                        "ilan": -0.260727584,
+                        "sino": -0.137505397,
+                        "ka": -0.655984521,
+                        "purpose": -0.063763618,
+                        "alan": -0.054063089,
+                        "sabi": -0.518479109,
+                        "tungkol": -0.518479109,
+                        "sa": 2.225799799,
+                        "sarili": -0.518479109,
+                        "deploy": 2.744278669,
+                        "ako": 2.744278669,
+                        "ng": 2.744278669,
+                        "project": 2.744278669,
+                        "environment": 2.744278669
+                      }
+                    }
+                  }
+                ],
                 "trainOpts": {
                   "iterations": 20000,
                   "errorThresh": 0.00005,
@@ -1591,6 +1827,113 @@
                 }
               }
             }
+          },
+          "deployment": {
+            "settings": {
+              "language": "tl",
+              "config": {
+                "activation": "leaky-relu",
+                "hiddenLayers": [],
+                "iterations": 20000,
+                "learningRate": 0.8,
+                "errorThresh": 0.00005,
+                "momentum": 0.5,
+                "deltaErrorThresh": 0.000001,
+                "maxDecimals": 9,
+                "leakyReluAlpha": 0.06,
+                "timeout": 120000
+              }
+            },
+            "language": "tl",
+            "keepStopwords": true,
+            "docs": [
+              {
+                "intent": "deploy",
+                "utterance": [
+                  "deploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environment"
+                ],
+                "tokens": [
+                  "deploy",
+                  "ako",
+                  "ng",
+                  "project",
+                  "sa",
+                  "environment"
+                ]
+              }
+            ],
+            "features": {
+              "deploy": 1,
+              "ako": 1,
+              "ng": 1,
+              "project": 1,
+              "sa": 1,
+              "environment": 1
+            },
+            "isEditing": false,
+            "className": "BrainNLU",
+            "classifier": {
+              "className": "BrainClassifier",
+              "settings": {
+                "language": "tl",
+                "config": {
+                  "activation": "leaky-relu",
+                  "hiddenLayers": [],
+                  "iterations": 20000,
+                  "learningRate": 0.8,
+                  "errorThresh": 0.00005,
+                  "momentum": 0.5,
+                  "deltaErrorThresh": 0.000001,
+                  "maxDecimals": 9,
+                  "leakyReluAlpha": 0.06,
+                  "timeout": 120000
+                }
+              },
+              "labels": [],
+              "network": {
+                "sizes": [
+                  6,
+                  1
+                ],
+                "layers": [
+                  {
+                    "deploy": {},
+                    "ako": {},
+                    "ng": {},
+                    "project": {},
+                    "sa": {},
+                    "environment": {}
+                  },
+                  {
+                    "deploy": {
+                      "bias": 1.247218966,
+                      "weights": {
+                        "deploy": 2.523121119,
+                        "ako": 2.523121119,
+                        "ng": 2.523121119,
+                        "project": 2.523121119,
+                        "sa": 2.523121119,
+                        "environment": 2.523121119
+                      }
+                    }
+                  }
+                ],
+                "trainOpts": {
+                  "iterations": 20000,
+                  "errorThresh": 0.00005,
+                  "deltaErrorThresh": 0.000001,
+                  "learningRate": 0.8,
+                  "momentum": 0.5,
+                  "leakyReluAlpha": 0.06,
+                  "maxDecimals": 9
+                }
+              }
+            }
           }
         }
       }
@@ -1695,6 +2038,18 @@
       [
         "tl",
         "magsabi ka tungkol sa sarili mo"
+      ],
+      [
+        "tl",
+        "padeploy ako ng %project% sa %environment%"
+      ],
+      [
+        "en",
+        "padeploy ako ng %project% sa %environment% environment"
+      ],
+      [
+        "en",
+        "padeploy ako ng %project% sa %environment% salamat"
       ]
     ]
   },

@@ -71,6 +71,23 @@ async function train() {
     "agent.acquaintance"
   );
 
+  manager.assignDomain("tl", "deploy", "deployment");
+  manager.addDocument(
+    "tl",
+    "padeploy ako ng %project% sa %environment%",
+    "deploy"
+  );
+  manager.addDocument(
+    "en",
+    "padeploy ako ng %project% sa %environment% environment",
+    "deploy"
+  );
+  manager.addDocument(
+    "en",
+    "padeploy ako ng %project% sa %environment% salamat",
+    "deploy"
+  );
+
   await manager.train();
   manager.save(modelPath);
   return manager;
