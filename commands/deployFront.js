@@ -47,7 +47,7 @@ module.exports = async (slack, event, project, environment) => {
       });
     } else {
       slack.chat.postMessage({
-        text: `Paumanhin, ngunit ang iyong deploy command ay hindi nagpatuloy, ito ay biglaang nagsarado: ${code}`,
+        text: `:x: Paumanhin, ngunit ang iyong deploy command ay hindi nagpatuloy, ito ay biglaang nagsarado: ${code}`,
         channel: event.channel
       });
     }

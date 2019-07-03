@@ -23,7 +23,7 @@ module.exports = slack => {
 
       await slack.chat.postMessage({
         text:
-          "Ako si `Abubot`. Ako ay isang robot na nagmula sa future, kaya ko ideploy ang iyong project sa ulap",
+          "Ako si `Abubot`. Ako ay isang robot ::robot_face: na nagmula sa future, kaya ko ideploy ang iyong project sa ulap :cloud:",
         channel: event.channel
       });
     },
@@ -34,7 +34,7 @@ module.exports = slack => {
 
       // Initial
       await slack.chat.postMessage({
-        text: `Sandali lamang po *master* <@${
+        text: `:bow: Sandali lamang po *master* <@${
           event.user
         }>, ang iyong proyekto ay aking hinahanap`,
         channel: event.channel
@@ -43,7 +43,7 @@ module.exports = slack => {
       // Detect for errors
       if (classification.entities.length < 2) {
         return await sendErrorMessage(
-          "Pasensya kana master, di ko mahanap ang iyong proyekto"
+          ":x: Pasensya kana master, di ko mahanap ang iyong proyekto"
         );
       }
 
@@ -56,13 +56,13 @@ module.exports = slack => {
 
       if (!environment || !project) {
         return await sendErrorMessage(
-          "Pasensya kana master, di ko mahanap ang iyong proyekto"
+          ":x: Pasensya kana master, di ko mahanap ang iyong proyekto"
         );
       }
 
       if (project.option === "robinsons") {
         await slack.chat.postMessage({
-          text: `Pasensya kana, ngungit ako ay walang kakayahang ideploy ang project na: ${
+          text: `:x: Pasensya kana, ngungit ako ay walang kakayahang ideploy ang project na: ${
             project.utteranceText
           } sa ${environment.utteranceText}.`,
           channel: event.channel
@@ -73,9 +73,9 @@ module.exports = slack => {
 
       // Say that we found the project
       await slack.chat.postMessage({
-        text: `Idedeploy ko na ang ${project.utteranceText} sa ${
+        text: `:balloon: Idedeploy ko na ang ${project.utteranceText} sa ${
           environment.utteranceText
-        }.`,
+        } :cloud: :cloud:.`,
         channel: event.channel
       });
 
@@ -89,7 +89,7 @@ module.exports = slack => {
       } catch (err) {
         let error = err.message;
         if (err.message.match(/Deploy command not found/)) {
-          error = `Paumanhin, ngunit hindi ko mahanap ang deployment command para sa project na \n${
+          error = `:x: Paumanhin, ngunit hindi ko mahanap ang deployment command para sa project na \n${
             project.utteranceText
           } at environment ${environment.utteranceText}`;
         }
