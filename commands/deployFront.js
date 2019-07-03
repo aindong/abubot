@@ -20,7 +20,7 @@ module.exports = async (project, environment) => {
   let fileExists = fs.existsSync(command);
 
   if (!fileExists) {
-    throw Error(`Deploy command not found, ${command}`);
+    throw new Error(`Deploy command not found, ${command}`);
   }
 
   const child = spawn(command);
