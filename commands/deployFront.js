@@ -42,7 +42,7 @@ module.exports = async (slack, event, project, environment) => {
   child.on("close", code => {
     if (code === 0) {
       slack.chat.postMessage({
-        text: `:check: Nadeploy ko na ang ${project} sa ${environment}. Maaari mo na itong subukan. Maraming salamat! :tada: :tada:`,
+        text: `:white_check_mark: Nadeploy ko na ang ${project} sa ${environment}. Maaari mo na itong subukan. Maraming salamat! :tada: :tada:`,
         channel: event.channel
       });
     } else {
