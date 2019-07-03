@@ -39,14 +39,17 @@ module.exports = async (slack, event, project, environment) => {
     });
   });
 
-  child.on("exit", code => {
-    slack.chat.postMessage({
-      text: `Nadeploy ko na ang ${project} sa ${environment}. Maaari mo na itong subukan. Maraming salamat!`,
-      channel: event.channel
-    });
-  });
-
   child.on("close", code => {
-    throw new Error(`child process exited with code ${code}`);
+    if (code === 0) {
+      slack.chat.postMessage({
+        text: `Nadeploy ko na ang ${project} sa ${environment}. Maaari mo na itong subukan. Maraming salamat!`,
+        channel: event.channel
+      });
+    } else {
+      slack.chat.postMessage({
+        text: `Paumanhin, ngunit ang iyong deploy command ay hindi nagpatuloy, ito ay biglaang nagsarado: ${code}`,
+        channel: event.channel
+      });
+    }
   });
 };
