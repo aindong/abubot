@@ -75,7 +75,7 @@ module.exports = slack => {
       await slack.chat.postMessage({
         text: `:balloon: Idedeploy ko na ang ${project.utteranceText} sa ${
           environment.utteranceText
-        } :cloud: :cloud:.`,
+        } :cloud: *Bigyan mo ako ng lima hanggang sampung minuto* :alarm_clock:.`,
         channel: event.channel
       });
 
