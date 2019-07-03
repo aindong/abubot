@@ -17,7 +17,8 @@ module.exports = async (project, environment) => {
   const projectPath = process.env.PROJECT_PATH || ".";
 
   let command = `./deploy-${env}.sh`;
-  let fileExists = fs.existsSync(command);
+  let filePath = `${projectPath}/${project}/deploy-${env}.sh`;
+  let fileExists = fs.existsSync(filePath);
 
   if (!fileExists) {
     throw new Error(`Deploy command not found, ${command}`);
