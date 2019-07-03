@@ -10,10 +10,10 @@ This is a tagalog slack bot that will help me for deploying applications in a si
 - Chai
 
 #### TODO
-- [*] Greetings
-- [*] Bot Information
-- [*] Deploy Project
-- [*] Natural Language Processing to learn chat patterns
+- [x] Greetings
+- [x] Bot Information
+- [x] Deploy Project
+- [x] Natural Language Processing to learn chat patterns
 - [ ] Learn to deploy a project
 - [ ] Retrain model
 - [ ] Clone project from a remote git repo
