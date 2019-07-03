@@ -1,4 +1,5 @@
 const { spawn } = require("child_process");
+const fs = require("fs");
 
 const getEnvironment = env => {
   switch (environment) {
@@ -16,6 +17,12 @@ module.exports = async (project, environment) => {
   const projectPath = process.env.PROJECT_PATH || ".";
 
   let command = `${projectPath}/${project}/deploy-${env}.sh`;
+  let fileExists = await fs.exists(command);
+
+  if (!fileExists) {
+    throw Error(`Deploy command not found, ${command}`);
+  }
+
   const child = spawn(command);
 
   // Make sure stdout will output string

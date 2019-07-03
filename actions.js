@@ -68,7 +68,7 @@ module.exports = slack => {
         channel: event.channel
       });
 
-      deployFront(project.utteranceText, environment.utteranceText);
+      await deployFront(project.utteranceText, environment.utteranceText);
     }
   };
 };
