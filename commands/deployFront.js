@@ -12,7 +12,7 @@ const getEnvironment = env => {
   }
 };
 
-module.exports = async (project, environment) => {
+module.exports = async (slack, event, project, environment) => {
   const env = getEnvironment(environment);
   const projectPath = process.env.PROJECT_PATH || ".";
 
@@ -33,6 +33,17 @@ module.exports = async (project, environment) => {
   child.stdout.on("data", chunk => {
     // data from standard output is here as buffers
     console.log(chunk);
+    slack.chat.postMessage({
+      text: chunk,
+      channel: event.channel
+    });
+  });
+
+  child.on("exit", code => {
+    slack.chat.postMessage({
+      text: `Nadeploy ko na ang ${project} sa ${environment}. Maaari mo na itong subukan. Maraming salamat!`,
+      channel: event.channel
+    });
   });
 
   child.on("close", code => {
