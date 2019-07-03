@@ -78,13 +78,18 @@ async function train() {
     "deploy"
   );
   manager.addDocument(
-    "en",
+    "tl",
     "padeploy ako ng %project% sa %environment% environment",
     "deploy"
   );
   manager.addDocument(
-    "en",
+    "tl",
     "padeploy ako ng %project% sa %environment% salamat",
+    "deploy"
+  );
+  manager.addDocument(
+    "tl",
+    "deploy mo nga yung %project% sa %environment%",
     "deploy"
   );
 
