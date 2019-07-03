@@ -2,7 +2,7 @@ const { spawn } = require("child_process");
 const fs = require("fs");
 
 const getEnvironment = env => {
-  switch (environment) {
+  switch (env) {
     case "production":
       return "prod";
     case "staging":
