@@ -33,10 +33,10 @@ module.exports = async (slack, event, project, environment) => {
   child.stdout.on("data", chunk => {
     // data from standard output is here as buffers
     console.log(chunk);
-    slack.chat.postMessage({
-      text: chunk,
-      channel: event.channel
-    });
+    // slack.chat.postMessage({
+    //   text: chunk,
+    //   channel: event.channel
+    // });
   });
 
   child.on("close", code => {

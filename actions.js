@@ -60,6 +60,17 @@ module.exports = slack => {
         );
       }
 
+      if (project.option === "robinsons") {
+        await slack.chat.postMessage({
+          text: `Pasensya kana, ngungit ako ay walang kakayahang ideploy ang project na: ${
+            project.utteranceText
+          } sa ${environment.utteranceText}.`,
+          channel: event.channel
+        });
+
+        return;
+      }
+
       // Say that we found the project
       await slack.chat.postMessage({
         text: `Idedeploy ko na ang ${project.utteranceText} sa ${
