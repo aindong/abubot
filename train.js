@@ -11,6 +11,13 @@ async function train() {
   );
 
   manager.addNamedEntityText(
+    "project",
+    "solo",
+    ["en"],
+    ["urc-website", "urc_cms_front"]
+  );
+
+  manager.addNamedEntityText(
     "environment",
     "environment",
     ["en"],

@@ -1,3 +1,5 @@
+const deployFront = require("./commands/deployFront");
+
 module.exports = slack => {
   const sendErrorMessage = async message => {
     await slack.chat.postMessage({
@@ -65,6 +67,8 @@ module.exports = slack => {
         } sa ${environment.utteranceText}.`,
         channel: event.channel
       });
+
+      deployFront(project.utteranceText, environment.utteranceText);
     }
   };
 };
